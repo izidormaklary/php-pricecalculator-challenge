@@ -1,20 +1,24 @@
 <?php
 declare(strict_types=1);
-function openConnection(): PDO
+class Connection
 {
 
-    $dbhost = "localhost";
-    $dbuser = "becode";
-    $dbpass = "becode";
-    $db = "Products";
+    public static function openConnection(): PDO
+    {
 
-    $driverOptions = [
-        PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    ];
+        $dbhost = "localhost";
+        $dbuser = "becode";
+        $dbpass = "becode";
+        $db = "Products";
 
-    return new PDO('mysql:host=' . $dbhost . ';dbname=' . $db, $dbuser, $dbpass, $driverOptions);
+        $driverOptions = [
+            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        ];
+
+        return new PDO('mysql:host=' . $dbhost . ';dbname=' . $db, $dbuser, $dbpass, $driverOptions);
+    }
 }
 
-$pdo = openConnection();
+
