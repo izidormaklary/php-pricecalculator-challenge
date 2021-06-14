@@ -1,3 +1,10 @@
+## Contributors
+- Izidor Maklary
+- Mari Mizutani
+
+## Description
+
+
 ## The Mission
 
 Make a price calculator with the following entities:
