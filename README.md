@@ -33,3 +33,14 @@ Make a price calculator with the following entities:
 - [ ] A table where you can see in detail how the price is calculated
 - [ ] The possibility to have different prices for different quantities (look, 1 EUR per item for 1, 0.9 EUR per item for 100, ...)
 - [ ] A category page for the different products
+
+### Tasks for today (15. june):
+
+- [ ] research on mvc, 1,5 hours
+- [ ] project planning, 0,5 hours
+- [ ] Loaders and wiring, 2 hours
+- [ ] 15 minutes revision
+- [ ] making the form, 1,5 hour
+  
+  
+  
