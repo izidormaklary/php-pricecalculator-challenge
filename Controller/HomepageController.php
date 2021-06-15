@@ -8,7 +8,10 @@ class HomepageController
     {
         $products= new Productloader();
         $products->getProducts();
+
         #secondloader here
+        $customers = new Customerloader();
+        $customers ->getCustomers();
 
 
 //        if (!$_POST['product']){

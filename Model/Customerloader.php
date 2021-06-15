@@ -9,18 +9,25 @@ class Customerloader
     public function getCustomers()
     {
         $pdo = Connection::openConnection();
-        $handle = $pdo->prepare('SELECT id, firstname, lastname, group_id, fixed_discount, variable_discount FROM customer');
+        $handle = $pdo->prepare('SELECT c.id, CONCAT_WS(" ",firstname, lastname)as name, c.fixed_discount as customerDiscount, g.fixed_discount as groupDiscount
+        FROM customer c
+        left join customer_group g on c.group_id = g.id');
+       
+        
         $handle->execute();
         $customers = $handle->fetchAll();
         foreach ($customers as $customer) {
-            $tempvar_custmer = new Customer($customer['id'],$customer['firstname'],$customer['lastname'],$customer['group_id'],
-                                            $customer['fixed_discount'],$customer['variable_discount']);
+            $tempvar_custmer = new Customer($customer['id'],$customer['name'],$customer['group_id'],
+                                            $customer['customerDiscount'],$customer['groupDiscount']);
             $this->customers []= $tempvar_custmer;
         }
 
     }
-    // function that searches for the $_POST['product']id in the array
-    public function findCustomerById(){
+    // function that searches for the $_POST['customer']id in the array
+    public function findCustomerById($customer_id){
+        // if(){
+
+        // }
 
     }
 }
