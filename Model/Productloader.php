@@ -13,7 +13,7 @@ class Productloader
         $handle->execute();
         $products = $handle->fetchAll();
         foreach ($products as $product) {
-            $tempvar = new Product($product['price'],$product['name'] , $product['id']);
+            $tempvar = new Product(intval($product['price']),$product['name'] , intval($product['id']));
             $this->products []= $tempvar;
         }
 

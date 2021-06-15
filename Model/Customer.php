@@ -10,7 +10,18 @@ class Customer {
         $this->id= $id;
         $this->name= $name;
         $this->Discount= max($customerDiscount, $groupDiscount);
-        
+
+    }
+
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getId(): string
+    {
+        return $this->id;
     }
 
 

@@ -4,7 +4,26 @@ Anything complex should be calculated in the model -->
 <section>
 
 
-<?php  ?>
+<form method="POST">
+
+    <label for="product">Product:</label>
+    <select name="product" id="product">
+    <?php foreach($products->products AS $element):?>
+        <option value="<?php echo $element->getId() ?>"> <?php echo $element->getName() ?> </option>
+    <?php endforeach; ?>
+    </select>
+
+
+
+    <label for="customer">Customer Name:</label>
+    <select name="customer" id="customer">
+    <?php foreach($customers->customers AS $element):?>
+        <option value="<?php echo $element->getId() ?>"> <?php echo $element->getName() ?> </option>
+    <?php endforeach; ?>
+    </select>
+
+    <input type="submit">
+</form>
 
 
 </section>

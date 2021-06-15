@@ -3,15 +3,30 @@
 
 class Product
 {
-    private string $price;
+    private int $price;
     private string $name;
-    private string $id;
+    private int $id;
 
-    public function __construct(string $price, string $name, string $id)
+    public function __construct(int $price, string $name, int $id)
     {
         $this->price= $price;
         $this->name= $name;
         $this->id= $id;
+    }
+
+    public function getPrice(): string
+    {
+        return $this->price;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getId(): string
+    {
+        return $this->id;
     }
 
 }

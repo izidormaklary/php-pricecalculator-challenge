@@ -17,8 +17,8 @@ class Customerloader
         $handle->execute();
         $customers = $handle->fetchAll();
         foreach ($customers as $customer) {
-            $tempvar_custmer = new Customer($customer['id'],$customer['name'],$customer['group_id'],
-                                            $customer['customerDiscount'],$customer['groupDiscount']);
+            $tempvar_custmer = new Customer(intval($customer['id']),$customer['name'],
+            intval($customer['customerDiscount']),intval($customer['groupDiscount']));
             $this->customers []= $tempvar_custmer;
         }
 
