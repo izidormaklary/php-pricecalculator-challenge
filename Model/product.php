@@ -3,11 +3,11 @@
 
 class Product
 {
-    private int $price;
+    private string $price;
     private string $name;
-    private int $id;
+    private string $id;
 
-    public function __construct(int $price, string $name, int $id)
+    public function __construct(string $price, string $name, string $id)
     {
         $this->price= $price;
         $this->name= $name;

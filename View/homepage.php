@@ -4,7 +4,7 @@ Anything complex should be calculated in the model -->
 <section>
 
 
-
+<?php  ?>
 
 
 </section>

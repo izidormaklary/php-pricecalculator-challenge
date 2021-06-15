@@ -13,10 +13,10 @@ class Productloader
         $handle->execute();
         $products = $handle->fetchAll();
         foreach ($products as $product) {
-            $tempvar = new Product(/*int $price, string $name, int $id*/);
-            $products []= $tempvar;
+            $tempvar = new Product($product['price'],$product['name'] , $product['id']);
+            $this->products []= $tempvar;
         }
-        var_dump($this->products);
+
     }
     // function that searches for the $_POST['product']id in the array
     public function findProdById(){

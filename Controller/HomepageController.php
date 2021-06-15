@@ -11,10 +11,10 @@ class HomepageController
         #secondloader here
 
 
-        if (!$_POST['product']){
-            $products->findProdById();
-
-        }
+//        if (!$_POST['product']){
+//            $products->findProdById();
+//
+//        }
 
         //this is just example code, you can remove the line below
         $user = new User('John Smith');
