@@ -7,6 +7,15 @@ class HomepageController
     public function render(array $GET, array $POST)
     {
         $products= new Productloader();
+        $products->getProducts();
+        #secondloader here
+
+
+        if (!$_POST['product']){
+            $products->findProdById();
+
+        }
+
         //this is just example code, you can remove the line below
         $user = new User('John Smith');
 
