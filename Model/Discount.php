@@ -13,7 +13,7 @@ class Discount
         // query for customer
         $pdo = Connection::openConnection();
         $handle = $pdo->prepare(
-    'SELECT  c.fixed_discount as customerFixed, g.fixed_discount as groupFixed, c.variable_discount as customerVar, g.variable_discount as groupVar, g.parent_id as parentId
+            'SELECT  c.fixed_discount as customerFixed, g.fixed_discount as groupFixed, c.variable_discount as customerVar, g.variable_discount as groupVar, g.parent_id as parentId
             FROM customer c
             left join customer_group g on c.group_id = g.id
             WHERE c.id = :id'
@@ -31,7 +31,7 @@ class Discount
 
         while (!empty($discounts['parentId'])) {
             $handle = $pdo->prepare(
-        'SELECT  g.fixed_discount as groupFixed, g.variable_discount as groupVar, g.parent_id as parentId
+                'SELECT  g.fixed_discount as groupFixed, g.variable_discount as groupVar, g.parent_id as parentId
                FROM  customer_group g
                WHERE g.id = :parentId'
             );
@@ -44,11 +44,13 @@ class Discount
             // assigning the values from the current group
             $this->groupVariableDiscounts[] = $discounts['groupVar'];
 
+
             //!... more values to come: fixed discount from group
-            
+
         }
 
     }
+
 }
 
 $trial = new Discount();

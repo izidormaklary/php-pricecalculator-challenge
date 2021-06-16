@@ -40,7 +40,7 @@ Make a price calculator with the following entities:
 - [x] project planning, 0,5 hours
 - [x] Loaders and wiring, 2 hours
 - [x] 15 minutes revision
-- [x] making the form, 1,5 hour
+- [x] making the form, 1,5 hour  
   
   
   

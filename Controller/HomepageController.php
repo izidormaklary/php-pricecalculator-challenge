@@ -15,6 +15,7 @@ class HomepageController
             $customerId= intval($_POST['customer']);
             $productId = intval($_POST['product']);
             $customers->findCustomerById($customerId);
+            $customers->findProdById($productId);
 
             Discount::selectDiscount($customerId,50000);
             // other searching function
