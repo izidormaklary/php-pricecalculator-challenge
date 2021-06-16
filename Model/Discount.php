@@ -36,7 +36,7 @@ class Discount
             //in this step $discounts['parentId'] is overwritten to
             $discounts = $handle->fetch();
             $this->groupVariableDiscounts[] = $discounts['groupVar'];
-        }
+        }  
 
 //        $CF =$discounts['customerFixed'];
 //        $GF =$discounts['groupFixed'];
