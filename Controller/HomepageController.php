@@ -12,8 +12,9 @@ class HomepageController
         #secondloader here
         $customers = new Customerloader();
         $customers ->getCustomers();
-
-
+        if (isset($POST)) {
+            $customers->findCustomerById(intval($_POST['customer']));
+        }
 //        if (!$_POST['product']){
 //            $products->findProdById();
 //

@@ -4,6 +4,7 @@ declare(strict_types = 1);
 class Customerloader
 {
      public array $customers;
+     public $selectedCustomer;
 //    private pdo $pdo;
 
     public function getCustomers()
@@ -24,10 +25,12 @@ class Customerloader
 
     }
     // function that searches for the $_POST['customer']id in the array
-    public function findCustomerById($customer_id){
-        // if(){
-
-        // }
-
+    public function findCustomerById(int $id){
+        foreach($this->customers as $customer) {
+            if ($id == $customer->getId()) {
+                $this->selectedCustomer = $customer;
+                break;
+            }
+        }
     }
 }

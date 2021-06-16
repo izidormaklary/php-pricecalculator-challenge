@@ -25,6 +25,6 @@ Anything complex should be calculated in the model -->
     <input type="submit">
 </form>
 
-<?php var_dump(intval($_POST['customer'])) ?>
+<?php var_dump($customers->selectedCustomer.name) ?>
 </section>
 <?php require 'includes/footer.php'?>
