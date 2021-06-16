@@ -9,7 +9,7 @@ class Connection
         $dbhost = "localhost";
         $dbuser = "becode";
         $dbpass = "becode";
-        $db = "Products";
+        $db = "Product";
 
         $driverOptions = [
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'",
