@@ -1,7 +1,5 @@
 <?php
 
-require 'connection.php';
-
 class Discount
 {
     // the highest discount from group table max(arrayofgroupdiscounts)
