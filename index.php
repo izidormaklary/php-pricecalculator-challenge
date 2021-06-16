@@ -8,6 +8,7 @@ require 'Model/Customerloader.php';
 require 'Model/User.php';
 require 'Model/product.php';
 require 'Model/Productloader.php';
+require 'Model/Discount.php';
 
 
 
