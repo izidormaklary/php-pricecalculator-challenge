@@ -45,6 +45,7 @@ class Discount
             $this->groupVariableDiscounts[] = $discounts['groupVar'];
 
             //!... more values to come: fixed discount from group
+            
         }
 
     }
