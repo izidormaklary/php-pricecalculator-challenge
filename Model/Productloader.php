@@ -3,8 +3,8 @@ declare(strict_types = 1);
 
 class Productloader
 {
-     public array $products;
-//    private pdo $pdo;
+    public array $products;
+    public $selectedProduct;
 
     public function getProducts()
     {
@@ -19,7 +19,13 @@ class Productloader
 
     }
     // function that searches for the $_POST['product']id in the array
-    public function findProdById(){
-
+    public function findProdById(int $prodId){
+        foreach($this->products as $element){
+            if($prodId == $element->getId()){
+                $this->selectedProduct = $element;
+                break;
+            }
+        }
     }
 }
+
