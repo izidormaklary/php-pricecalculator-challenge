@@ -4,9 +4,8 @@ require 'connection.php';
 
 class Discount
 {
-    private array $groupVariableDiscounts = array();
-
     // the highest discount from group table max(arrayofgroupdiscounts)
+    private array $groupVariableDiscounts = array();
 
     public function selectDiscount($customer, $price)
     {
@@ -22,10 +21,15 @@ class Discount
         $handle->bindValue(':id', $customer);
         $handle->execute();
         $discounts = $handle->fetch();
-        $this->groupVariableDiscounts[] = $discounts['groupVar'];
-        // query for parent group if there is one
-        while (!empty($discounts['parentId'])) {
 
+        //assigning values to the objects (first round)
+        $this->groupVariableDiscounts[] = $discounts['groupVar'];
+        //! ... more values to come: fixed discount from customer table, fixed discount from group table
+
+
+        // query for further groups (if there are). The loop goes further into parent group as long there is any.
+
+        while (!empty($discounts['parentId'])) {
             $handle = $pdo->prepare(
         'SELECT  g.fixed_discount as groupFixed, g.variable_discount as groupVar, g.parent_id as parentId
                FROM  customer_group g
@@ -33,19 +37,16 @@ class Discount
             );
             $handle->bindValue(':parentId', $discounts['parentId']);
             $handle->execute();
-            //in this step $discounts['parentId'] is overwritten to
+
+            //in this step $discounts['parentId'] is overwritten to the parent id from the new query (so the while condition stays up to date)
             $discounts = $handle->fetch();
+
+            // assigning the values from the current group
             $this->groupVariableDiscounts[] = $discounts['groupVar'];
+
+            //!... more values to come: fixed discount from group
         }
 
-//        $CF =$discounts['customerFixed'];
-//        $GF =$discounts['groupFixed'];
-//        $CV = ($price/100) * ($discounts['customerVar']/100);
-//        $GV = ($price/100) * ($discounts['groupVar']/100);
-//        var_dump($CF);
-//        var_dump($GF);
-//        var_dump($CV);
-//        var_dump($GV);
     }
 }
 
