@@ -14,6 +14,8 @@ class HomepageController
         $customers ->getCustomers();
         if (!empty($_POST['customer'])&&!empty($_POST['product'])) {
             $customers->findCustomerById(intval($_POST['customer']));
+
+            Discount::selectDiscount(24,50000);
             // other searching function
 
 
