@@ -14,7 +14,7 @@ class Product
         $this->id= $id;
     }
 
-    public function getPrice(): string
+    public function getPrice(): int
     {
         return $this->price;
     }
@@ -24,7 +24,7 @@ class Product
         return $this->name;
     }
 
-    public function getId(): string
+    public function getId(): int
     {
         return $this->id;
     }

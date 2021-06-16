@@ -36,11 +36,11 @@ Make a price calculator with the following entities:
 
 ### Tasks for today (15. june):
 
-- [ ] research on mvc, 1,5 hours
-- [ ] project planning, 0,5 hours
-- [ ] Loaders and wiring, 2 hours
-- [ ] 15 minutes revision
-- [ ] making the form, 1,5 hour
+- [x] research on mvc, 1,5 hours
+- [x] project planning, 0,5 hours
+- [x] Loaders and wiring, 2 hours
+- [x] 15 minutes revision
+- [x] making the form, 1,5 hour
   
   
   

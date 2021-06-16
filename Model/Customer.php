@@ -19,7 +19,7 @@ class Customer {
         return $this->name;
     }
 
-    public function getId(): string
+    public function getId(): int
     {
         return $this->id;
     }
