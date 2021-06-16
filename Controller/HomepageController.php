@@ -13,14 +13,16 @@ class HomepageController
         $customers = new Customerloader();
         $customers ->getCustomers();
         if (!empty($_POST['customer'])&&!empty($_POST['product'])) {
-            $customers->findCustomerById(intval($_POST['customer']));
+            $customerId= intval($_POST['customer']);
+            $productId = intval($_POST['product']);
+            $customers->findCustomerById($customerId);
 
-            Discount::selectDiscount(24,50000);
+            Discount::selectDiscount($customerId,50000);
             // other searching function
 
 
         }
-        $productprice=
+
 //        if (!$_POST['product']){
 //            $products->findProdById();
 //
