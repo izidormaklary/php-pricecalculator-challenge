@@ -23,14 +23,7 @@ class HomepageController
 
         }
 
-//        if (!$_POST['product']){
-//            $products->findProdById();
-//
-//        }
-
-
-
-        //you should not echo anything inside your controller - only assign vars here
+         //you should not echo anything inside your controller - only assign vars here
         // then the view will actually display them.
 
         //load the view
