@@ -8,7 +8,6 @@ class HomepageController
     {
         $products= new Productloader();
         $products->getProducts();
-
         #secondloader here
         $customers = new Customerloader();
         $customers ->getCustomers();
@@ -19,8 +18,6 @@ class HomepageController
 
             Discount::selectDiscount($customerId,50000);
             // other searching function
-
-
         }
 
          //you should not echo anything inside your controller - only assign vars here
