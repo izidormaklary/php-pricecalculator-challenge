@@ -5,7 +5,6 @@ declare(strict_types=1);
 require 'Model/connection.php';
 require 'Model/Customer.php';
 require 'Model/Customerloader.php';
-require 'Model/User.php';
 require 'Model/product.php';
 require 'Model/Productloader.php';
 
