@@ -3,9 +3,15 @@
 class Discount
 {
     // the highest discount from group table max(arrayofgroupdiscounts)
-    private array $groupVariableDiscounts = array();
+    private array $VariableDiscounts = array();
+    private int $fixedDiscount;
 
-    public function selectDiscount($customer, $price)
+    public function __construct()
+    {
+        ;
+    }
+
+    public function selectDiscount($customer)
     {
 
         // query for customer
@@ -21,7 +27,10 @@ class Discount
         $discounts = $handle->fetch();
 
         //assigning values to the objects (first round)
-        $this->groupVariableDiscounts[] = $discounts['groupVar'];
+        $this->VariableDiscounts[] = intval($discounts['groupVar']);
+        $this->fixedDiscount = intval($discounts['customerFixed']);
+        $this->fixedDiscount += intval($discounts['groupFixed']);
+
         //! ... more values to come: fixed discount from customer table, fixed discount from group table
 
 
@@ -40,16 +49,26 @@ class Discount
             $discounts = $handle->fetch();
 
             // assigning the values from the current group
-            $this->groupVariableDiscounts[] = $discounts['groupVar'];
-
-
+            $this->VariableDiscounts[] = intval($discounts['groupVar']);
+            $this->fixedDiscount += intval($discounts['groupFixed']);
             //!... more values to come: fixed discount from group
 
         }
 
     }
 
+
+    public function getVariableDiscount(): int
+    {
+        return max($this->VariableDiscounts);
+    }
+
+    public function getFixedDiscount(): int
+    {
+        return $this->fixedDiscount;
+    }
+
 }
 
 $trial = new Discount();
-$trial->selectDiscount(17, 5000);
+$trial->selectDiscount(6, 5000);
