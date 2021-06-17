@@ -1,0 +1,39 @@
+body{
+    font-family: Arial;
+}
+header{
+    margin-bottom: 5%;
+}
+table, th, td {
+    
+    border-collapse: collapse;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top:5px;
+    text-align: center;
+}
+table {
+
+    margin-right: auto;
+    margin-left: auto;
+}
+form {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+body{
+    background-color: #ccdbff;
+}
+.results {
+    background-color: rgba(255, 255, 255, 0.71);
+}
+
+.headers{
+    background-color: rgba(192, 192, 192, 0.71);
+}
+hr{
+
+    margin-bottom: 15%;
+}
