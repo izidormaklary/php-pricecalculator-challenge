@@ -16,16 +16,15 @@ class Productloader
             $tempvar = new Product(intval($product['price']),$product['name'] , intval($product['id']));
             $this->products []= $tempvar;
         }
-
     }
     // function that searches for the $_POST['product']id in the array
     public function findProdById(int $prodId){
         foreach($this->products as $element){
             if($prodId == $element->getId()){
-                $this->selectedProduct = $element;
-                break;
+                return $this->selectedProduct = $element;
             }
         }
     }
+
 }
 

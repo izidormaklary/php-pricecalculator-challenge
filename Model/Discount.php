@@ -70,5 +70,4 @@ class Discount
 
 }
 
-$trial = new Discount();
 $trial->selectDiscount(6, 5000);
