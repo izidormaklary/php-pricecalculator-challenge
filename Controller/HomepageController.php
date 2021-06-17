@@ -19,22 +19,31 @@ class HomepageController
         $fixedDisc="";
         $varDisc="";
         $finalPrice="";
+        $ProductName="";
+        $amount="";
+        $volumeDisc="above 100pcs.";
 
         if (!empty($_POST['customer'])&&!empty($_POST['product'])) {
             $customerId= intval($_POST['customer']);
             $productId = intval($_POST['product']);
+            $amount = $_POST['amount'];
+            if($amount>=100){
+                $volumeDisc = "10%";
+            }
+
             $selCustomerObj= $customers->findCustomerById($customerId);
             $selProductObj = $products->findProdById($productId);
-            $selProductPrice= $selProductObj->getPrice()/100;
+            $selProductPrice= $selProductObj->getPrice();
             $discount = new Discount();
             $discount->selectDiscount($customerId);
             $fixedDisc=$discount->getFixedDiscount();
             $varDisc=$discount->getVariableDiscount();
 
             $name = $selCustomerObj->getName();
+            $ProductName = $selProductObj->getName();
 
             $startCalc = new Calculate;
-            $finalPrice=Calculate::getPrice($selProductObj, $discount);
+            $finalPrice=Calculate::getPrice($selProductObj, $discount, $amount);
 
             // other searching function
         }

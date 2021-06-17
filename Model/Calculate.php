@@ -3,11 +3,15 @@
 
 class Calculate
 {
-public static function getPrice($prodObj,$discObj){
-    $originalPrice = $prodObj->getPrice()/100;
+public static function getPrice($prodObj,$discObj,$amount){
+
+    $price = $prodObj->getPrice()*$amount;
+        if($amount>=100){
+            $price = 0.9*$price;
+        }
     $fixedDiscount = $discObj->getFixedDiscount();
     $variableDiscount = $discObj->getVariableDiscount();
-    $priceWithFixed= $originalPrice-$fixedDiscount;
+    $priceWithFixed= $price-$fixedDiscount;
     if (empty($variableDiscount)) {
         $priceFinal = $priceWithFixed;
     }else{

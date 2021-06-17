@@ -13,6 +13,8 @@
                 <?php endforeach; ?>
             </select>
 
+            <label for="amount">Amount:</label>
+            <input name="amount" value="1">
 
             <label for="customer">Customer Name:</label>
             <select name="customer" id="customer">
@@ -32,11 +34,14 @@
         <table>
         <thead>
         <tr>
-            <th class="empty"> products</th>
-            <th class="big" colspan="3"> For <?php echo $name ?></th>
+            <th class="empty">  <?php echo $ProductName ?></th>
+            <th colspan="2"></th>
+            <th class="big" colspan="2"> For <?php echo $name ?></th>
         </tr>
         <tr class="headers">
             <th>Original price</th>
+            <th>Amount</th>
+            <th>Volume discount</th>
             <th>Fixed discounts</th>
             <th>Variable discount</th>
             <th>Final price</th>
@@ -46,6 +51,8 @@
         <tbody>
         <tr class="results">
             <td><?php echo $selProductPrice."€" ?></td>
+            <td><?php echo $amount."pcs" ?></td>
+            <td><?php echo $volumeDisc ?></td>
             <td><?php echo $fixedDisc."€" ?></td>
             <td><?php echo $varDisc."%" ?></td>
             <td><?php echo $finalPrice."€" ?></td>
