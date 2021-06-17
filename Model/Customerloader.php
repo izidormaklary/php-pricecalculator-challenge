@@ -3,23 +3,21 @@ declare(strict_types = 1);
 
 class Customerloader
 {
-     public array $customers;
-     public $selectedCustomer;
+     private array $customers;
+     private $selectedCustomer;
 //    private pdo $pdo;
 
     public function getCustomers()
     {
         $pdo = Connection::openConnection();
-        $handle = $pdo->prepare('SELECT c.id, CONCAT_WS(" ",firstname, lastname)as name, c.fixed_discount as customerDiscount, g.fixed_discount as groupDiscount
-        FROM customer c
-        left join customer_group g on c.group_id = g.id');
+        $handle = $pdo->prepare('SELECT c.id, CONCAT_WS(" ",firstname, lastname)as name
+                                        FROM customer c');
        
         
         $handle->execute();
         $customers = $handle->fetchAll();
         foreach ($customers as $customer) {
-            $tempvar_custmer = new Customer(intval($customer['id']),$customer['name'],
-            intval($customer['customerDiscount']),intval($customer['groupDiscount']));
+            $tempvar_custmer = new Customer(intval($customer['id']),$customer['name']);
             $this->customers []= $tempvar_custmer;
         }
 
@@ -28,9 +26,15 @@ class Customerloader
     public function findCustomerById(int $id){
         foreach($this->customers as $customer) {
             if ($id == $customer->getId()) {
-                $this->selectedCustomer = $customer;
-                break;
+                return $this->selectedCustomer = $customer;
             }
         }
     }
+
+
+    public function getCustomerArr()
+    {
+        return $this->customers;
+    }
+
 }

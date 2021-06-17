@@ -8,9 +8,7 @@ require 'Model/Customerloader.php';
 require 'Model/product.php';
 require 'Model/Productloader.php';
 require 'Model/Discount.php';
-
-
-
+require 'Model/Calculate.php';
 
 //include all your controllers here
 require 'Controller/HomepageController.php';
@@ -20,9 +18,5 @@ require 'Controller/HomepageController.php';
 //this file should never be more than 20 lines of code!
 
 $controller = new HomepageController();
-if(isset($_GET['page']) && $_GET['page'] === 'info') {
-    $controller = new InfoController();
-}
-
 
 $controller->render($_GET, $_POST);

@@ -1,30 +1,56 @@
-<?php require 'includes/header.php'?>
-<!-- this is the view, try to put only simple if's and loops here.
-Anything complex should be calculated in the model -->
-<section>
+<?php require 'includes/header.php' ?>
+    <!-- this is the view, try to put only simple if's and loops here.
+    Anything complex should be calculated in the model -->
+    <section>
 
 
-<form method="POST">
+        <form method="POST">
 
-    <label for="product">Product:</label>
-    <select name="product" id="product">
-    <?php foreach($products->products AS $element):?>
-        <option value="<?php echo $element->getId() ?>"> <?php echo $element->getName() ?> </option>
-    <?php endforeach; ?>
-    </select>
+            <label for="product">Product:</label>
+            <select name="product" id="product">
+                <?php foreach ($products->products as $element): ?>
+                    <option value="<?php echo $element->getId() ?>"> <?php echo $element->getName() ?> </option>
+                <?php endforeach; ?>
+            </select>
 
 
+            <label for="customer">Customer Name:</label>
+            <select name="customer" id="customer">
+                <?php foreach ($customers->getCustomerArr() as $element): ?>
+                    <option value="<?php echo $element->getId() ?>"> <?php echo $element->getName() ?> </option>
+                <?php endforeach; ?>
+            </select>
 
-    <label for="customer">Customer Name:</label>
-    <select name="customer" id="customer">
-    <?php foreach($customers->customers AS $element):?>
-        <option value="<?php echo $element->getId() ?>"> <?php echo $element->getName() ?> </option>
-    <?php endforeach; ?>
-    </select>
+            <input type="submit">
+        </form>
 
-    <input type="submit">
-</form>
 
-<?php var_dump($customers->selectedCustomer->getId()) ?>
-</section>
-<?php require 'includes/footer.php'?>
+    </section>
+    <hr>
+    <section>
+
+        <table>
+        <thead>
+        <tr>
+            <th class="empty"> </th>
+            <th class="big" colspan="3"> For <?php echo $name ?></th>
+        </tr>
+        <tr class="headers">
+            <th>Original price</th>
+            <th>Fixed discounts</th>
+            <th>Variable discount</th>
+            <th>Final price</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="results">
+            <td><?php echo $selProductPrice."€" ?></td>
+            <td><?php echo $fixedDisc."€" ?></td>
+            <td><?php echo $varDisc."%" ?></td>
+            <td><?php echo $finalPrice."€" ?></td>
+        </tr>
+        </tbody>
+        </table>
+    </section>
+<?php require 'includes/footer.php' ?>
