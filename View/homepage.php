@@ -14,7 +14,7 @@
             </select>
 
             <label for="amount">Amount:</label>
-            <input name="amount" type="number" value="1" min="1">
+            <input name="amount" type="number" value="1" min="1" class="amount_field">
 
             <label for="customer">Customer Name:</label>
             <select name="customer" id="customer">

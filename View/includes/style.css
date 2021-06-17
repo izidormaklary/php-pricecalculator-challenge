@@ -1,5 +1,6 @@
 body{
     font-family: Arial;
+    text-align: center;
 }
 header{
     margin-bottom: 5%;
@@ -36,4 +37,16 @@ body{
 hr{
 
     margin-bottom: 15%;
+}
+.amount_field{
+    width:5%;
+    margin-right:20px;
+}
+
+#product{
+    margin-right:20px;
+}
+
+footer{
+    margin-top:40px;
 }
