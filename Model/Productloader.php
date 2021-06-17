@@ -21,7 +21,8 @@ class Productloader
     public function findProdById(int $prodId){
         foreach($this->products as $element){
             if($prodId == $element->getId()){
-                return $this->selectedProduct = $element;
+                $this->selectedProduct = $element;
+                return $element;
             }
         }
     }

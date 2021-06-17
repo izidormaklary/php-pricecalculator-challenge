@@ -26,7 +26,8 @@ class Customerloader
     public function findCustomerById(int $id){
         foreach($this->customers as $customer) {
             if ($id == $customer->getId()) {
-                return $this->selectedCustomer = $customer;
+                $this->selectedCustomer = $customer;
+                return $customer;
             }
         }
     }

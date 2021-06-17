@@ -32,7 +32,7 @@
         <table>
         <thead>
         <tr>
-            <th class="empty"> </th>
+            <th class="empty"> products</th>
             <th class="big" colspan="3"> For <?php echo $name ?></th>
         </tr>
         <tr class="headers">
