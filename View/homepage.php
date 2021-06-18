@@ -1,9 +1,6 @@
 <?php require 'includes/header.php' ?>
-    <!-- this is the view, try to put only simple if's and loops here.
-    Anything complex should be calculated in the model -->
+    <!-- form with product, amount and customer -->
     <section>
-
-
         <form method="POST">
 
             <label for="product">Product:</label>
@@ -22,15 +19,12 @@
                     <option value="<?php echo $element->getId() ?>"> <?php echo $element->getName() ?> </option>
                 <?php endforeach; ?>
             </select>
-
             <input type="submit">
         </form>
-
-
     </section>
     <hr>
+    <!-- table of results -->
     <section>
-
         <table>
         <thead>
         <tr>
@@ -45,7 +39,6 @@
             <th>Fixed discounts</th>
             <th>Variable discount</th>
             <th>Final price</th>
-
         </tr>
         </thead>
         <tbody>

@@ -1,6 +1,6 @@
 <?php
 
-
+//setting class for getting price, name and id from products, productLoader generates objects
 class Product
 {
     private int $price;
@@ -14,7 +14,7 @@ class Product
         $this->id= $id;
     }
 
-    public function getPrice(): int
+    public function getPrice():float
     {
         return $this->price/100;
     }

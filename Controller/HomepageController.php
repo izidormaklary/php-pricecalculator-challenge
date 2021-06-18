@@ -3,18 +3,19 @@ declare(strict_types = 1);
 
 class HomepageController
 {
-    //render function with both $_GET and $_POST vars available if it would be needed.
-    public function render(array $GET, array $POST)
+    //render function
+    public function render()
     {
-
+        //make new product objects from productLoader
         $products= new Productloader();
         $products->getProducts();
-        #secondloader here
+        
+        //make new customer objects from customerLoader
         $customers = new Customerloader();
         $customers ->getCustomers();
 
+        //default values for view
         $name = "customer";
-
         $selProductPrice="";
         $fixedDisc="";
         $varDisc="";
@@ -23,36 +24,39 @@ class HomepageController
         $amount="";
         $volumeDisc="above 100pcs.";
 
+        //when form submitted, get each value
         if (!empty($_POST['customer'])&&!empty($_POST['product'])) {
+
+            //assigning values from posts
             $customerId= intval($_POST['customer']);
             $productId = intval($_POST['product']);
             $amount = $_POST['amount'];
+
+            //when the amount is more than 100, volume discount
             if($amount>=100){
                 $volumeDisc = "10%";
             }
-
+            //find objects from each array
             $selCustomerObj= $customers->findCustomerById($customerId);
             $selProductObj = $products->findProdById($productId);
-            $selProductPrice= $selProductObj->getPrice();
+
+            //discount for specific customer
             $discount = new Discount();
             $discount->selectDiscount($customerId);
+            
+            //initiate calculate class
+            $startCalc = new Calculate;
+            
+            //set view variables 
+            $name = $selCustomerObj->getName();
+            $selProductPrice= $selProductObj->getPrice();
             $fixedDisc=$discount->getFixedDiscount();
             $varDisc=$discount->getVariableDiscount();
-
-            $name = $selCustomerObj->getName();
+            $finalPrice=$startCalc->getPrice($selProductObj, $discount, $amount);
             $ProductName = $selProductObj->getName();
-
-            $startCalc = new Calculate;
-            $finalPrice=Calculate::getPrice($selProductObj, $discount, $amount);
-
-            // other searching function
         }
-
-         //you should not echo anything inside your controller - only assign vars here
-        // then the view will actually display them.
 
         //load the view
         require 'View/homepage.php';
-
     }
 }

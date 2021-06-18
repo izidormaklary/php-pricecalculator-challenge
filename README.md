@@ -35,5 +35,5 @@ Make a price calculator with the following entities:
 - [ ] A category page for the different products
 
   
-  
+ ![screenshot of the page](resources/screenshot.png)
   

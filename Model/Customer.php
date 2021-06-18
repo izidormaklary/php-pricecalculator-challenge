@@ -1,5 +1,6 @@
 <?php
 
+//setting class for getting name and id from customer, customerLoader generates objects
 class Customer {
     private int $id;
     private string $name;
@@ -9,8 +10,6 @@ class Customer {
     {
         $this->id= $id;
         $this->name= $name;
-
-
     }
 
 
